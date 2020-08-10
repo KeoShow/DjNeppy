@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Эквалайзер</title>
+		
+		<meta charset="utf-8">
+		<meta name="description" content="Эквалайзер - это забавное приложение для браузера, позволяющее легко и бесплатно создавать и публиковать собственные музыкальные визуализаторы с использованием новейших функций HTML5, таких как Canvas, Web Audio API и MediaRecorder.">
+		<meta name="keywords" content="">
+		<meta name="author" content="Nasso">
+		<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.min.css" />
+		<!-- <link rel="stylesheet" href="css/theplayer.min.css" /> -->
+		
+		<script type="text/javascript" src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+		<script type="text/javascript" src="js/theplayer.min.js"></script>
+		<script type="text/javascript" src="js/spin.min.js"></script>
+		<script type="text/javascript" src="js/index.min.js"></script>
+		
+		<!-- The non-minified version of "index.min.js" is just "index.js". If you wanna hack, then use it instead :p -->
+	</head>
+	<body>
+		<div style="display: none;">
+			<a id="downloader"></a>
+			<input type="file" id="fileChooser" multiple />
+			
+			<audio id="audioElement" loop></audio>
+		</div>
+		
+		<canvas id="cvs"></canvas>
+		
+		<div class="hidable">
+			<i id="bottomMenuOpener" class="fa fa-angle-up w3-xxxlarge"></i>
+			<div class="aPlayer" id="itsThePlayer" data-target="audioElement"></div>
+			<div id="bottomMenu">
+				<h1>Эквалайзер 1.4.3</h1>
+				<p>Эквалайзер - это забавное приложение для браузера, позволяющее легко и бесплатно создавать собственные музыкальные визуализаторы и делиться ими с использованием новейших функций HTML5, таких как Canvas, Web Audio API и MediaRecorder.</p>
+				<p>Нажмите <span class="keyboardkey">F1</span> переключить интерфейс.</p>
+				
+				<div id="bottomMenuLeftPart">
+					<a class="button" href="https://github.com/Nasso/urmusic/wiki">urwiki</a>
+					<span id="videoRecord" class="button disabled">Запишите видео (без поддержки)</span>
+				</div>
+				
+				<div id="bottomMenuRightPart">
+					<script type='text/javascript' src='cdn.ko-fi.com/cdn/widget/widget_2.js'></script><script type ='text/javascript'>kofiwidget2.init('Buy Me a Coffee', '#009cde', 'A206GOL');kofiwidget2.draw();</script>
+				</div>
+			</div>
+		</div>
+				
+		
+		<div id="musicApps" class="hidable">
+			<i class="fa fa-soundcloud w3-xlarge musicAppIcon" id="soundcloudApp"></i>
+		</div>
+		
+		<nav id="settingsNav" class="hidable">
+			<header>
+				<div id="hambParent">
+					<div id="hamb" class="fa fa-bars w3-large"></div>
+				</div>
+				<h3>Настройки</h3>
+				<span class="fa fa-angle-right w3-xlarge" id="presetMenuOpenCloseBtn"></span>
+			</header>
+			<div id="settingsPresetsMenu">
+				<div id="settingsPresetsMenuSizer">
+					<header>
+						<input type="text" placeholder="preset name" id="presetNameInput" />
+						<ul id="settingsPresetsOptions">
+							<li id="settingsPresetsOptOpen" class="fa fa-folder-open-o w3-xlarge"></li>
+							<li id="settingsPresetsOptSave" class="fa fa-floppy-o w3-xlarge"></li>
+						</ul>
+					</header>
+					<ul id="settingsPresetsList">
+					</ul>
+				</div>
+			</div>
+			<div id="settingsCtrlsContainer">
+				<div>
+					<ul id="globalSettings" class="settingsCtrlsList">
+					</ul>
+					
+					<ul id="settingsSectionTabs">
+						<li id="addTab" class="fa fa-plus w3-medium"></li>
+					</ul>
+					
+					<ul id="sectionSettings" class="settingsCtrlsList">
+					</ul>
+					
+					<h4>Расширенные настройки</h4>
+					<ul id="advancedSettings" class="settingsCtrlsList">
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<nav id="helpNav" class="hidable">
+			<h2>Перетащите сюда песню, чтобы начать</h2><br />
+			<p>Вы также можете вставить ссылку в меню SoundCloud в правом верхнем углу.</p>
+		</nav>
+		
+		<div class="warningMessage hidable" id="firefoxIsBetter">
+			<header>
+				<i class="fa fa-exclamation-triangle w3-large warnIcon"></i>
+				<h5>Предупреждение</h5>
+				<i class="fa fa-times w3-large close"></i>
+			</header>
+			<p>
+				Это приложение лучше работает с <a href="https://www.mozilla.org/firefox">Firefox</a>.
+				Я рекомендую использовать его, потому что некоторые функции недоступны в других браузерах.<br /><br />
+				Пример: вы не сможете перетащить песню в некоторых браузерах. Тем не менее, потоковая передача из SoundCloud должна быть возможна.
+			</p>
+		</div>
+	</body>
+</html>
