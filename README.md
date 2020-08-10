@@ -1,2 +1,0 @@
-# DjNeppy
-Demo Page
